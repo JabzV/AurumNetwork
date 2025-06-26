@@ -1,0 +1,94 @@
+import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { HeroContent, HeroBackground, HeroButtons } from './hero';
+
+// Gold Sparkle Component
+const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
+  delay?: number;
+  duration?: number;
+  size?: number;
+  x?: number;
+  y?: number;
+}) => (
+  <motion.div
+    className="absolute pointer-events-none"
+    style={{
+      left: `${x}%`,
+      top: `${y}%`,
+      width: `${size}px`,
+      height: `${size}px`,
+    }}
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{
+      opacity: [0, 1, 0],
+      scale: [0, 1, 0],
+      y: [0, -20, -40],
+      x: [0, Math.random() * 10 - 5, Math.random() * 20 - 10],
+    }}
+    transition={{
+      duration: duration,
+      delay: delay,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <div 
+      className="w-full h-full rounded-full shadow-lg"
+      style={{
+        background: 'linear-gradient(to bottom right, rgb(120,81,45), rgb(222,150,83))',
+        boxShadow: '0 4px 6px -1px rgba(222, 150, 83, 0.5)'
+      }}
+    />
+  </motion.div>
+);
+
+export const HeroSection = () => {
+  // Generate sparkle data only once
+  const sparkles = useMemo(() => {
+    return Array.from({ length: 250 }).map((_, i) => ({
+      id: i,
+      delay: i * 0.5,
+      duration: 2 + Math.random() * 2,
+      size: 3 + Math.random() * 4,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+    }));
+  }, []);
+
+  return (
+    <section className="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[909px] overflow-hidden bg-hero">
+      {/* Background Image with Blur Effect */}
+      <HeroBackground />
+      
+      {/* Animated Gold Sparkles */}
+      <div className="absolute inset-0 pointer-events-none z-5">
+        {sparkles.map((sparkle) => (
+          <GoldSparkle
+            key={sparkle.id}
+            delay={sparkle.delay}
+            duration={sparkle.duration}
+            size={sparkle.size}
+            x={sparkle.x}
+            y={sparkle.y}
+          />
+        ))}
+      </div>
+      
+      {/* Content Container */}
+      <div className="relative z-10 flex items-center min-h-[600px] md:min-h-[700px] lg:min-h-[909px] px-4 sm:px-6 md:px-12 lg:px-20">
+        <motion.div 
+          className="flex flex-col space-y-4 md:space-y-6 w-full max-w-7xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          {/* Hero Text Content */}
+          <HeroContent />
+          
+          {/* Hero Buttons */}
+          <HeroButtons />
+        </motion.div>    
+      </div>
+    </section>
+  );
+}; 

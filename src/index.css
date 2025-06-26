@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* DESIGN STYLES */
+
+/* Colors */
+:root {
+  --color-bg-main: 18 20 23; /* main bg-color */
+  --color-bg-hero: 24 27 31; /* hero section bg-color */
+  --color-gold-light: 229 144 69; /* #E59045 */
+  --color-gold-dark: 127 80 38; /* #7F5026 */
+}
+
+/* Fonts */
+@font-face {
+  font-family: "muller-regular";
+  src: url("../assets/Muller Regular.ttf");
+}
+
+/* Selective CSS Reset - only remove problematic defaults */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Setup */
+body {
+  font-family: "muller-regular", sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Smooth scrolling for all scrollable elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styling */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(18, 20, 23);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #e59445, #7f5026);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #fbbf00, #e59445);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e59445 rgb(18, 20, 23);
+}
+
+/* Text Selection Styling */
+::selection {
+  background-color: #e59445;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #e59445;
+  color: white;
+}
+
+/* Utility Classes */
+@layer utilities {
+  .bg-body {
+    background-color: rgb(var(--color-bg-main));
+  }
+
+  .bg-hero {
+    background-color: rgb(var(--color-bg-hero));
+  }
+  
+  .border-3 {
+    border-width: 3px;
+  }
+  
+  .bg-gradient-gold {
+    background: linear-gradient(to right, rgb(var(--color-gold-light)), rgb(var(--color-gold-dark)));
+  }
+  
+  /* Progressive blur effect with increased fading */
+  .blur-mask {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 50%, transparent 60%);
+    -webkit-mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 50%, transparent 60%);
+  }
+  
+  /* Mobile responsive blur - more blur coverage on small screens */
+  @media (max-width: 768px) {
+    .blur-mask {
+      mask: linear-gradient(to right, black 0%, black 40%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.4) 75%, transparent 90%);
+      -webkit-mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 55%, transparent 60%);
+    }
+  }
+}
+
