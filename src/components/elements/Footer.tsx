@@ -28,7 +28,7 @@ export const Footer = () => {
           </p>
           {/* Social Icons */}
           <div className="flex gap-6 mt-2 mb-4">
-            {socialLinks.map((item, idx) => (
+            {socialLinks.map((item) => (
               <a key={item.label} href={item.href} aria-label={item.label} className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: '#8a6032'}} target="_blank" rel="noopener noreferrer">
                 {item.icon}
               </a>
