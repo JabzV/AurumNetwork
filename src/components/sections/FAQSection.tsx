@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface FAQItem {
   id: string;
@@ -93,26 +93,24 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
       </motion.div>
       
       {/* Answer Content */}
-      <AnimatePresence>
+      <motion.div 
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.15 }}
+        className="overflow-hidden"
+      >
         {isOpen && (
-          <motion.div 
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-[#272727] mt-0 rounded-b-xl p-6 border-l-2 border-r-2 border-b-2 border-[#e59445]">
-              <div className="pl-4">
-                <p className="text-white text-base leading-relaxed flex items-start gap-3">
-                  <span className="text-[#e59445] font-bold text-lg mt-0.5">{'>'}</span>
-                  {item.answer}
-                </p>
-              </div>
+          <div className="bg-[#272727] mt-0 rounded-b-xl p-6 border-l-2 border-r-2 border-b-2 border-[#e59445]">
+            <div className="pl-4">
+              <p className="text-white text-base leading-relaxed flex items-start gap-3">
+                <span className="text-[#e59445] font-bold text-lg mt-0.5">{'>'}</span>
+                {item.answer}
+              </p>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </motion.div>
     </motion.div>
   );
 };
