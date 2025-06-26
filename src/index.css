@@ -85,6 +85,20 @@ body {
   color: white;
 }
 
+/* --- Move .blur-mask to global scope for Vercel compatibility --- */
+.blur-mask {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 50%, transparent 60%);
+  -webkit-mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 50%, transparent 60%);
+}
+@media (max-width: 768px) {
+  .blur-mask {
+    mask: linear-gradient(to right, black 0%, black 40%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.4) 75%, transparent 90%);
+    -webkit-mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 55%, transparent 60%);
+  }
+}
+
 /* Utility Classes */
 @layer utilities {
   .bg-body {
@@ -104,19 +118,9 @@ body {
   }
   
   /* Progressive blur effect with increased fading */
-  .blur-mask {
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 50%, transparent 60%);
-    -webkit-mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 50%, transparent 60%);
-  }
+  /* .blur-mask was here, now moved to global scope for deployment compatibility */
   
   /* Mobile responsive blur - more blur coverage on small screens */
-  @media (max-width: 768px) {
-    .blur-mask {
-      mask: linear-gradient(to right, black 0%, black 40%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.4) 75%, transparent 90%);
-      -webkit-mask: linear-gradient(to right, black 0%, black 30%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 55%, transparent 60%);
-    }
-  }
+  /* .blur-mask media query was here, now moved to global scope for deployment compatibility */
 }
 
