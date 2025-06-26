@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 const testimonialsRow1 = [
   {
     name: 'Sarah Pasquito',
