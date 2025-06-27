@@ -63,7 +63,7 @@ export const EcosystemSection = () => {
 
   // Generate sparkle data only once
   const sparkles = useMemo(() => {
-    return Array.from({ length: 100 }).map((_, i) => ({
+    return Array.from({ length: 50 }).map((_, i) => ({
       id: i,
       delay: i * 0.3,
       duration: 2 + Math.random() * 2,

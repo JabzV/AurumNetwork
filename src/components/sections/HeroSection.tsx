@@ -46,7 +46,7 @@ const GoldSparkle = memo(({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
 export const HeroSection = () => {
   // Memoize sparkle props so random values are only generated once
   const sparkles = useMemo(() => {
-    return Array.from({ length: 100 }).map((_, i) => {
+    return Array.from({ length: 50 }).map((_, i) => {
       const delay = i * 0.8;
       const duration = 3 + Math.random() * 2;
       const size = 3 + Math.random() * 3;
