@@ -42,50 +42,38 @@ const faqData: FAQItem[] = [
 
 const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) => {
   return (
-    <motion.div 
-      className="w-full"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      viewport={{ once: true, margin: "-50px" }}
-    >
+    <div className="w-full">
       {/* Question Header */}
-      <motion.div 
-        className={`bg-[#272727] rounded-xl p-6 cursor-pointer transition-all duration-100 ease-in-out ${
+      <div 
+        className={`bg-[#272727] rounded-xl p-6 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(229,148,69,0.1)] active:scale-98 ${
           isOpen ? 'border-2 border-[#e59445]' : 'border border-[#333] hover:border-[#e59445]/50'
         }`}
         onClick={onToggle}
-        whileHover={{ backgroundColor: "rgba(229, 148, 69, 0.1)" }}
-        whileTap={{ scale: 0.98 }}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <motion.div 
-              className="w-4 h-4 rounded-full bg-[#e59445] flex items-center justify-center transition-all duration-300"
-              animate={{ scale: isOpen ? 1.1 : 1 }}
-              transition={{ duration: 0.15 }}
+            <div 
+              className={`w-4 h-4 rounded-full bg-[#e59445] flex items-center justify-center transition-all duration-300 ${
+                isOpen ? 'scale-110' : 'scale-100'
+              }`}
             >
-              <motion.div 
-                className={`w-2 h-2 bg-white rounded-full transition-all duration-300 ${isOpen ? 'scale-75' : 'scale-100'}`}
-                animate={{ scale: isOpen ? 0.75 : 1 }}
-                transition={{ duration: 0.15 }}
+              <div 
+                className={`w-2 h-2 bg-white rounded-full transition-all duration-300 ${
+                  isOpen ? 'scale-75' : 'scale-100'
+                }`}
               />
-            </motion.div>
+            </div>
             <h3 className={`text-lg font-medium transition-all duration-300 ${isOpen ? 'text-[#e59445]' : 'text-white'}`}>
               {item.question}
             </h3>
           </div>
-          <motion.div 
-            className="w-4 h-4 flex items-center justify-center"
-            animate={{ rotate: isOpen ? 45 : 0 }}
-            transition={{ duration: 0.15 }}
-          >
+          <div className="w-4 h-4 flex items-center justify-center">
             <svg 
               width="15" 
               height="15" 
               viewBox="0 0 15 15" 
               fill="none" 
-              className={`transition-all duration-500 ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+              className={`transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}
             >
               <path 
                 d="M0.9375 0.9375H13.125V13.125H0.9375V0.9375Z" 
@@ -93,18 +81,12 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
                 className="transition-all duration-300"
               />
             </svg>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
       
       {/* Answer Content */}
-      <motion.div 
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.15 }}
-        className="overflow-hidden"
-      >
+      <div className="overflow-hidden transition-all duration-300">
         {isOpen && (
           <div className="bg-[#272727] mt-0 rounded-b-xl p-6 border-l-2 border-r-2 border-b-2 border-[#e59445]">
             <div className="pl-4">
@@ -115,8 +97,8 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
             </div>
           </div>
         )}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
