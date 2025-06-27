@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { StrategicPartners } from './why-aurum/StrategicPartners';
 import { SocialProofSection } from './why-aurum/SocialProofSection';
 import { LineDivider } from '../shared/LineDivider';
