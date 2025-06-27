@@ -29,6 +29,7 @@ export const HeroBackground = () => {
         className="w-full h-full object-cover"
         style={{
           transform: `scale(1.2) translateX(${translateX})`,
+          willChange: 'transform',
         }}
       />
 

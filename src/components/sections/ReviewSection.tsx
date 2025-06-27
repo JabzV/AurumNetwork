@@ -1,3 +1,5 @@
+import { memo, useMemo } from 'react';
+
 const testimonialsRow1 = [
   {
     name: 'Sarah Pasquito',
@@ -52,7 +54,7 @@ const testimonialsRow2 = [
   }
 ];
 
-const TestimonialCard = ({ name, role, avatar, text }: any) => (
+const TestimonialCard = memo(({ name, role, avatar, text }: any) => (
   <div className="bg-[#272727] rounded-2xl p-6 w-[320px] flex-shrink-0 flex flex-col gap-4 shadow-lg border border-[#333]">
     <div className="text-white text-xl  flex-grow">{text}</div>
     <div className="flex items-center gap-4 mt-2">
@@ -62,17 +64,16 @@ const TestimonialCard = ({ name, role, avatar, text }: any) => (
         <div className="text-[rgb(222,150,83)] text-sm font-medium">{role}</div>
       </div>
     </div>
-    
   </div>
-);
+));
 
 const getRow = (testimonials: any[], reverse = false) => {
-  // Duplicate testimonials for seamless loop
-  const row = [...testimonials, ...testimonials];
+  // Duplicate testimonials for seamless loop, memoized
+  const row = useMemo(() => [...testimonials, ...testimonials], [testimonials]);
   return (
     <div
       className={`flex gap-8 animate-marquee ${reverse ? 'animate-marquee-reverse' : ''}`}
-      style={{ minWidth: 'max-content' }}
+      style={{ minWidth: 'max-content', willChange: 'transform', transform: 'translateZ(0)' }}
     >
       {row.map((t, i) => (
         <TestimonialCard key={t.name + i} {...t} />

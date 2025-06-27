@@ -124,3 +124,7 @@ body {
   /* .blur-mask media query was here, now moved to global scope for deployment compatibility */
 }
 
+html, body, #root {
+  background-color: rgb(var(--color-bg-main));
+}
+

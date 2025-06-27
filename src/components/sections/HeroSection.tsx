@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import { HeroContent, HeroBackground, HeroButtons } from './hero';
 
-// Optimized Gold Sparkle Component
-const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
+// Memoized Gold Sparkle Component
+const GoldSparkle = memo(({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
   delay?: number;
   duration?: number;
   size?: number;
@@ -41,19 +41,22 @@ const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
       }}
     />
   </motion.div>
-);
+));
 
 export const HeroSection = () => {
-  // Reduced sparkle count for better performance
+  // Memoize sparkle props so random values are only generated once
   const sparkles = useMemo(() => {
-    return Array.from({ length: 250 }).map((_, i) => ({
-      id: i,
-      delay: i * 0.3,
-      duration: 2 + Math.random() * 2,
-      size: 3 + Math.random() * 4,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-    }));
+    return Array.from({ length: 250 }).map((_, i) => {
+      const delay = i * 0.8;
+      const duration = 3 + Math.random() * 2;
+      const size = 3 + Math.random() * 3;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      // Memoize the random animation values for each sparkle
+      const animX = [0, Math.random() * 10 - 5, Math.random() * 20 - 10];
+      const animY = [0, -20, -40];
+      return { id: i, delay, duration, size, x, y, animX, animY };
+    });
   }, []);
 
   return (

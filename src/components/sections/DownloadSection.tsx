@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const DownloadSection = () => {
   return (
-    <section className="w-full py-16 px-4 sm:px-8 md:px-16 lg:px-0 flex flex-col items-center bg-body relative">
+    <section className="w-full py-16 px-4 sm:px-8 md:px-16 lg:px-32 flex flex-col items-center bg-body relative">
       {/* Background Glowing Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Glow 1 */}
@@ -32,7 +32,7 @@ export const DownloadSection = () => {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Left Content */}
-        <div className="flex-1 flex flex-col items-start gap-6 max-w-2xl order-1 lg:order-1">
+        <div className="flex-1 flex flex-col items-start gap-6 max-w-2xl order-2 lg:order-1 w-full">
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
             Download and Access Aurum Platform App
           </h2>
@@ -55,8 +55,8 @@ export const DownloadSection = () => {
               <img 
                 src="/assets/Gold-Globe-PNG-Photo.png" 
                 alt="Web App" 
-                className="w-12 h-12 object-contain"
-                style={{ minWidth: '3rem' }}
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                style={{ minWidth: '2.5rem' }}
               />
               <div className="flex flex-col items-start">
                 <span className="text-xs text-white/70 tracking-widest font-medium uppercase">Access our</span>
@@ -76,8 +76,8 @@ export const DownloadSection = () => {
               <img 
                 src="/assets/apple-logo-png_seeklogo-9833.png" 
                 alt="App Store" 
-                className="w-10 h-10 object-contain"
-                style={{ minWidth: '3rem' }}
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                style={{ minWidth: '2.5rem' }}
               />
               <div className="flex flex-col items-start">
                 <span className="text-xs text-white/70 tracking-widest font-medium uppercase">Get it on</span>
@@ -97,8 +97,8 @@ export const DownloadSection = () => {
               <img 
                 src="/assets/Google_Play-Icon-Logo.wine.png" 
                 alt="Google Play" 
-                className="w-12 h-12 object-contain"
-                style={{ minWidth: '3rem' }}
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                style={{ minWidth: '2.5rem' }}
               />
               <div className="flex flex-col items-start">
                 <span className="text-xs text-white/70 tracking-widest font-medium uppercase">Get it on</span>
@@ -109,9 +109,9 @@ export const DownloadSection = () => {
         </div>
         
         {/* Right Mobile Mockup */}
-        <div className="flex-1 flex justify-center lg:justify-end order-2 lg:order-2">
+        <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full mb-8 lg:mb-0">
           <motion.div 
-            className="relative"
+            className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-[400px] flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -120,16 +120,15 @@ export const DownloadSection = () => {
           >
             {/* Glow Effect Behind Phone */}
             <div 
-              className="absolute inset-0 w-[450px] h-[600px] rounded-3xl blur-2xl -z-10"
+              className="absolute inset-0 w-full h-full rounded-3xl blur-2xl -z-10"
               style={{
                 background: 'radial-gradient(circle, rgba(229, 148, 69, 0.3) 0%, rgba(229, 148, 69, 0.1) 50%, transparent 70%)'
               }}
             />
-            
             <img 
               src="/assets/phone-mockup.png" 
               alt="Aurum Network Mobile App" 
-              className="w-[450px] h-[600px] object-contain relative z-10"
+              className="w-full h-[400px] object-contain relative z-10"
               onError={e => (e.currentTarget.style.display = 'none')}
             />
           </motion.div>
