@@ -1,5 +1,5 @@
-import React, { useState, useRef, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
 // Gold Sparkle Component
@@ -51,6 +51,15 @@ export const EcosystemSection = () => {
   });
 
   const formRef = useRef<HTMLFormElement>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
 
   // Generate sparkle data only once
   const sparkles = useMemo(() => {
@@ -119,11 +128,11 @@ export const EcosystemSection = () => {
       
       {/* Heading and Divider */}
       <motion.div 
+        ref={ref}
         className="max-w-7xl w-full flex flex-col items-center gap-4 relative z-10"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={hasAnimated ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        viewport={{ once: true, margin: "-50px" }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-white text-center">
           Get Started And Learn More
@@ -140,9 +149,8 @@ export const EcosystemSection = () => {
       <motion.div 
         className="w-full flex justify-center mt-16 relative z-10"
         initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        viewport={{ once: true, margin: "-50px" }}
       >
         <motion.div
           className="w-full max-w-xl p-[2px] rounded-3xl"

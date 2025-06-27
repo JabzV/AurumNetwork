@@ -1,6 +1,18 @@
 import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 
 export const DownloadSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
   return (
     <section className="w-full py-16 px-4 sm:px-8 md:px-16 lg:px-32 flex flex-col items-center bg-body relative">
       {/* Background Glowing Elements */}
@@ -25,11 +37,11 @@ export const DownloadSection = () => {
       </div>
 
       <motion.div 
+        ref={ref}
         className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={hasAnimated ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true, margin: "-100px" }}
       >
         {/* Left Content */}
         <div className="flex-1 flex flex-col items-start gap-6 max-w-2xl order-2 lg:order-1 w-full">
@@ -113,9 +125,8 @@ export const DownloadSection = () => {
           <motion.div 
             className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-[400px] flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            animate={hasAnimated ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true, margin: "-100px" }}
             whileHover={{ scale: 1.01 }}
           >
             {/* Glow Effect Behind Phone */}

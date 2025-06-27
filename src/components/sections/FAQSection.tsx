@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 interface FAQItem {
   id: string;
@@ -45,7 +44,7 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
     <div className="w-full">
       {/* Question Header */}
       <div 
-        className={`bg-[#272727] rounded-xl p-6 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(229,148,69,0.1)] active:scale-98 ${
+        className={`bg-[#272727] rounded-xl p-6 cursor-pointer hover:bg-[rgba(229,148,69,0.1)] active:scale-98 ${
           isOpen ? 'border-2 border-[#e59445]' : 'border border-[#333] hover:border-[#e59445]/50'
         }`}
         onClick={onToggle}
@@ -53,17 +52,17 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div 
-              className={`w-4 h-4 rounded-full bg-[#e59445] flex items-center justify-center transition-all duration-300 ${
+              className={`w-4 h-4 rounded-full bg-[#e59445] flex items-center justify-center transition-all duration-200 ${
                 isOpen ? 'scale-110' : 'scale-100'
               }`}
             >
               <div 
-                className={`w-2 h-2 bg-white rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 bg-white rounded-full transition-all duration-200 ${
                   isOpen ? 'scale-75' : 'scale-100'
                 }`}
               />
             </div>
-            <h3 className={`text-lg font-medium transition-all duration-300 ${isOpen ? 'text-[#e59445]' : 'text-white'}`}>
+            <h3 className={`text-lg font-medium transition-all duration-200 ${isOpen ? 'text-[#e59445]' : 'text-white'}`}>
               {item.question}
             </h3>
           </div>
@@ -73,12 +72,12 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
               height="15" 
               viewBox="0 0 15 15" 
               fill="none" 
-              className={`transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+              className={`transition-all duration-200 ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}
             >
               <path 
                 d="M0.9375 0.9375H13.125V13.125H0.9375V0.9375Z" 
                 fill={isOpen ? '#e59445' : '#ffffff'}
-                className="transition-all duration-300"
+                className="transition-all duration-200"
               />
             </svg>
           </div>
@@ -86,9 +85,9 @@ const FAQItem = ({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
       </div>
       
       {/* Answer Content */}
-      <div className="overflow-hidden transition-all duration-300">
+      <div className="overflow-hidden">
         {isOpen && (
-          <div className="bg-[#272727] mt-0 rounded-b-xl p-6 border-l-2 border-r-2 border-b-2 border-[#e59445]">
+          <div className={`bg-[#272727] mt-0 rounded-b-xl p-6 border-l-2 border-r-2 border-b-2 border-[#e59445] transition-all duration-300`}>
             <div className="pl-4">
               <p className="text-white text-base leading-relaxed flex items-start gap-3">
                 <span className="text-[#e59445] font-bold text-lg mt-0.5">{'>'}</span>
@@ -132,13 +131,7 @@ export const FAQSection = () => {
         />
       </div>
 
-      <motion.div 
-        className="max-w-7xl w-full flex flex-col items-center gap-4 relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="max-w-7xl w-full flex flex-col items-center gap-4 relative z-10">
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-white text-center">
           Frequently Asked Questions
         </h2>
@@ -146,31 +139,19 @@ export const FAQSection = () => {
         <p className="text-base md:text-lg text-neutral-300 text-center max-w-3xl mx-auto mt-2">
           Everything you need to know about Aurum Network Token
         </p>
-      </motion.div>
+      </div>
       
-      <motion.div 
-        className="w-full max-w-4xl mt-12 space-y-4 relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="w-full max-w-4xl mt-12 space-y-4 relative z-10">
         {faqData.map((item, index) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
+          <div key={item.id}>
             <FAQItem
               item={item}
               isOpen={openItem === item.id}
               onToggle={() => handleToggle(item.id)}
             />
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }; 
