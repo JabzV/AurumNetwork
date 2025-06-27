@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { SocialProofBlock } from './SocialProofBlock';
 
 const socialProofData = [
@@ -61,25 +60,13 @@ const socialProofData = [
 export const SocialProofSection = () => {
   return (
     <div className="w-full py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
-      <motion.div 
-        className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-16 lg:gap-20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-16 lg:gap-20">
         {socialProofData.map((item, index) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <div key={item.id}>
             <SocialProofBlock {...item} index={index} className="my-8 md:my-12 lg:my-16"/>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }; 

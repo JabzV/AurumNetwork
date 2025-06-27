@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 
 interface StatItem {
   icon: string;
@@ -56,26 +55,20 @@ export const SocialProofBlock = ({ glowColor, mainImage, heading, stats, index, 
         {stats.map((stat, statIndex) => (
           <div key={statIndex} className="flex flex-col gap-2 xs:gap-3 md:gap-4">
             {/* Stat Icon + Text */}
-            <motion.div 
-              className="flex items-center gap-2 xs:gap-3"
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.15 }}
-            >
-              <motion.img
+            <div className="flex items-center gap-2 xs:gap-3">
+              <img
                 src={stat.icon}
                 alt={stat.stat}
-                className="w-[40px] h-[40px] xs:w-[48px] xs:h-[48px] sm:w-[54px] sm:h-[54px] md:w-[60px] md:h-[60px] object-contain flex-shrink-0"
+                className="w-[40px] h-[40px] xs:w-[48px] xs:h-[48px] sm:w-[54px] sm:h-[54px] md:w-[60px] md:h-[60px] object-contain flex-shrink-0 transition-transform duration-150 hover:scale-105"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.15 }}
               />
               <span className="text-white font-medium text-sm xs:text-base sm:text-lg leading-tight">
                 {stat.stat}
               </span>
-            </motion.div>
+            </div>
             
             {/* Stat Description */}
             <p className="text-neutral-300 text-xs xs:text-sm sm:text-base leading-relaxed">
