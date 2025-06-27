@@ -33,8 +33,8 @@ export const DiscoverSection = () => {
         className="max-w-7xl w-full flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-white text-center">
@@ -67,8 +67,8 @@ export const DiscoverSection = () => {
             className="relative z-10 w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border-2 border-[rgb(222,150,83)] bg-neutral-900 flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             {/* Replace this with your video or image */}
             <video

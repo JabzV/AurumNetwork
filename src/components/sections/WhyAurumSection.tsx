@@ -10,8 +10,8 @@ export const WhyAurumSection = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <StrategicPartners />
       </motion.div>
@@ -21,8 +21,8 @@ export const WhyAurumSection = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <SocialProofSection />
       </motion.div>

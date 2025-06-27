@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import { HeroContent, HeroBackground, HeroButtons } from './hero';
 
-// Gold Sparkle Component
+// Optimized Gold Sparkle Component
 const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
   delay?: number;
   duration?: number;
@@ -17,6 +17,7 @@ const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
       top: `${y}%`,
       width: `${size}px`,
       height: `${size}px`,
+      willChange: 'transform, opacity',
     }}
     initial={{ opacity: 0, scale: 0 }}
     animate={{
@@ -43,11 +44,11 @@ const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
 );
 
 export const HeroSection = () => {
-  // Generate sparkle data only once
+  // Reduced sparkle count for better performance
   const sparkles = useMemo(() => {
     return Array.from({ length: 250 }).map((_, i) => ({
       id: i,
-      delay: i * 0.5,
+      delay: i * 0.3,
       duration: 2 + Math.random() * 2,
       size: 3 + Math.random() * 4,
       x: Math.random() * 100,
@@ -60,7 +61,7 @@ export const HeroSection = () => {
       {/* Background Image with Blur Effect */}
       <HeroBackground />
       
-      {/* Animated Gold Sparkles */}
+      {/* Optimized Animated Gold Sparkles */}
       <div className="absolute inset-0 pointer-events-none z-5">
         {sparkles.map((sparkle) => (
           <GoldSparkle
@@ -80,7 +81,7 @@ export const HeroSection = () => {
           className="flex flex-col space-y-4 md:space-y-6 w-full max-w-7xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           {/* Hero Text Content */}
           <HeroContent />

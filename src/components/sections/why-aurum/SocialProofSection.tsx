@@ -65,16 +65,16 @@ export const SocialProofSection = () => {
         className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-16 lg:gap-20"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         {socialProofData.map((item, index) => (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 + index * 0.05 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <SocialProofBlock {...item} index={index} className="my-8 md:my-12 lg:my-16"/>
           </motion.div>

@@ -28,8 +28,8 @@ export const DownloadSection = () => {
         className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         {/* Left Content */}
         <div className="flex-1 flex flex-col items-start gap-6 max-w-2xl order-1 lg:order-1">
@@ -42,7 +42,7 @@ export const DownloadSection = () => {
           </p>
           
           {/* Download Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full">
+          <div className="flex flex-col sm:flex-row gap-4 w-full">
             {/* Web App Button */}
             <motion.a 
               href="https://aurumplatform.io/" 
@@ -114,8 +114,8 @@ export const DownloadSection = () => {
             className="relative"
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, margin: "-100px" }}
             whileHover={{ scale: 1.01 }}
           >
             {/* Glow Effect Behind Phone */}
