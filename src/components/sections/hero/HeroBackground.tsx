@@ -24,7 +24,7 @@ export const HeroBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <img 
-        src="assets/image2.png"
+        src="assets/image2.webp"
         alt="Aurum Network Ecosystem Platform"
         className="w-full h-full object-cover"
         style={{

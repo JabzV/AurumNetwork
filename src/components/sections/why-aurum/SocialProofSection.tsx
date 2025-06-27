@@ -5,7 +5,7 @@ const socialProofData = [
   {
     id: 1,
     glowColor: 'rgba(255,187,128,0.7)',
-    mainImage: 'assets/whyaurum1.png',
+    mainImage: 'assets/whyaurum1.webp',
     heading: "World's Fastest-Growing Gold Supply Chain Network",
     stats: [
       {
@@ -23,7 +23,7 @@ const socialProofData = [
   {
     id: 2,
     glowColor: 'rgba(255,187,128,0.7)',
-    mainImage: 'assets/whyaurum2.png',
+    mainImage: 'assets/whyaurum2.webp',
     heading: 'Aurum Network Makes Gold A Blockchain-Powered Asset.',
     stats: [
       {
@@ -41,7 +41,7 @@ const socialProofData = [
   {
     id: 3,
     glowColor: 'rgba(255,187,128,0.7)',
-    mainImage: 'assets/whyaurum3.png',
+    mainImage: 'assets/whyaurum3.webp',
     heading: 'The Future of Gold With Aurum: Secure, Scalable, Seamless.',
     stats: [
       {

@@ -32,16 +32,14 @@ export const SocialProofBlock = ({ glowColor, mainImage, heading, stats, index, 
         }}
       />
       {/* Main Image */}
-      <motion.img
+      <img
         src={mainImage}
         alt="Social Proof Main Image"
-        className="relative z-10 w-full h-full rounded-[16px] xs:rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] object-cover"
+        className="relative z-10 w-full h-full rounded-[16px] xs:rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] object-cover transition-transform duration-150 hover:scale-[1.01]"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.style.display = 'none';
         }}
-        whileHover={{ scale: 1.01 }}
-        transition={{ duration: 0.15 }}
       />
     </div>
   );
@@ -62,7 +60,6 @@ export const SocialProofBlock = ({ glowColor, mainImage, heading, stats, index, 
               className="flex items-center gap-2 xs:gap-3"
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.15 }}
-              style={{ willChange: 'transform' }}
             >
               <motion.img
                 src={stat.icon}
@@ -74,7 +71,6 @@ export const SocialProofBlock = ({ glowColor, mainImage, heading, stats, index, 
                 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.15 }}
-                style={{ willChange: 'transform' }}
               />
               <span className="text-white font-medium text-sm xs:text-base sm:text-lg leading-tight">
                 {stat.stat}
