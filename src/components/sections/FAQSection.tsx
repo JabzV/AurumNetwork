@@ -142,7 +142,7 @@ export const FAQSection = () => {
       </div>
       
       <div className="w-full max-w-4xl mt-12 space-y-4 relative z-10">
-        {faqData.map((item, index) => (
+        {faqData.map((item) => (
           <div key={item.id}>
             <FAQItem
               item={item}
