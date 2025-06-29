@@ -76,12 +76,12 @@ export const DiscoverSection = () => {
               ref={videoRef}
               className="w-full h-full object-cover"
               controls
-              poster="/assets/AurumPoster.jpg"
+              //poster="/assets/AurumPoster.jpg"
               muted
               playsInline
               autoPlay
             >
-              <source src="/assets/AurumVideo.mp4" type="video/mp4" />
+              <source src="assets/AurumVideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
