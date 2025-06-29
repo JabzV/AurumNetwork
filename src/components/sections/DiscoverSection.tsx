@@ -3,16 +3,19 @@ import { useRef, useEffect, useState } from 'react';
 export const DiscoverSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const [hasPlayed, setHasPlayed] = useState(false);
   const [showUnmuteButton, setShowUnmuteButton] = useState(false);
+  const [hasUnmuted, setHasUnmuted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && videoRef.current) {
+        if (entry.isIntersecting && videoRef.current && !hasPlayed) {
           videoRef.current.play().catch(error => {
             console.log('Auto-play prevented:', error);
           });
           setShowUnmuteButton(true);
+          setHasPlayed(true);
         }
       },
       { threshold: 0.1, rootMargin: "-100px" }
@@ -23,12 +26,13 @@ export const DiscoverSection = () => {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [hasPlayed]);
 
   const handleUnmute = () => {
     if (videoRef.current) {
       videoRef.current.muted = false;
       setShowUnmuteButton(false);
+      setHasUnmuted(true);
     }
   };
 
@@ -74,13 +78,15 @@ export const DiscoverSection = () => {
               controls
               poster="assets/AurumPoster.jpg"
               muted
+              playsInline
+              autoPlay
             >
               <source src="assets/AurumVideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
             {/* Unmute Button */}
-            {showUnmuteButton && (
+            {showUnmuteButton && !hasUnmuted && (
               <button
                 onClick={handleUnmute}
                 className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white px-3 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 z-20"
