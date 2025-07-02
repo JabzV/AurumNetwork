@@ -10,12 +10,15 @@ export const HeroButtons = () => {
     >
       {/* Get Started Button - Gradient */}
       <motion.a 
-        href="#learn-more" 
+        href="#learn-more"
         className="w-full sm:w-auto"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2 }}
       >
+        <a href="https://aurumplatform.io/register?ref=5413444d9eea0a4a0c2820241029133847607"
+        target="_blank" 
+        rel="noopener noreferrer">
         <button className="
           flex items-center justify-center 
           w-full sm:w-[240px] md:w-[240px] lg:w-[240px] 
@@ -24,8 +27,9 @@ export const HeroButtons = () => {
           duration-300 bg-gradient-to-r from-[#e59445] to-[#7f5026] hover:to-[#e59445] 
           active:from-[#7f5026] active:to-[#a86a1a] focus:outline-none rounded-[320px] cursor-pointer
         ">
-          Get Started
+          Register Now
         </button>
+        </a>
       </motion.a>
       
       {/* Check the Whitepaper Button - Outlined */}
