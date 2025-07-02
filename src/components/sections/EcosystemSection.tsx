@@ -70,7 +70,7 @@ export const EcosystemSection = () => {
     message: ''
   });
 
-  const [setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const ref = useRef(null);
@@ -327,7 +327,8 @@ export const EcosystemSection = () => {
 
                 {/* Submit Button */}
                 <motion.button 
-              type="submit" 
+              type="submit"
+              disabled={isSubmitting}
               className="w-full py-3 rounded-lg font-bold text-white text-lg transition-all 
               duration-300 bg-gradient-to-r from-[#e59445] to-[#7f5026] hover:to-[#e59445] 
               active:from-[#7f5026] active:to-[#a86a1a] focus:outline-none mb-6"
