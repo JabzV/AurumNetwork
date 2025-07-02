@@ -1,6 +1,7 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import QRCode from 'react-qr-code';
+import emailjs from '@emailjs/browser';
 
 // Gold Sparkle Component
 const GoldSparkle = ({ delay = 0, duration = 3, size = 4, x = 0, y = 0 }: {
@@ -69,9 +70,9 @@ export const EcosystemSection = () => {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const formRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -94,7 +95,8 @@ export const EcosystemSection = () => {
     }));
   }, []);
 
-  const handleSubmit = async (e: React.MouseEvent) => {
+    
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Check if all required fields are filled
@@ -111,18 +113,24 @@ export const EcosystemSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Mock email sending - replace with actual emailjs implementation
-      console.log('Form submitted:', formData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setShowSuccessMessage(true);
+      await emailjs.sendForm(
+        'service_m6iobec',
+        'template_n5iw1y5',
+        formRef.current!,
+        '7RvBpfvheXDm5kbA_'
+      )
+      .then((result: { text: any; }) => {
+        console.log('SUCCESS!', result.text);
+        setShowSuccessMessage(true);
       
       // Redirect after showing success message
       setTimeout(() => {
         window.location.href = 'https://webinar.aurumnetwork.io/';
       }, 2000);
+      }, (error: { text: any; }) => {
+        console.log('FAILED...', error.text);
+        alert('Failed to send message. Please try again.');
+      });
       
     } catch (error) {
       console.error('Submission error:', error);
@@ -220,7 +228,11 @@ export const EcosystemSection = () => {
             whileHover={{ scale: 1.002 }}
             transition={{ duration: 0.3 }}
           >
-            <div ref={formRef} className="w-full bg-hero rounded-3xl p-12 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+            <form 
+  ref={formRef} 
+  onSubmit={handleSubmit}
+  className="w-full bg-hero rounded-3xl p-12 shadow-2xl relative overflow-hidden backdrop-blur-sm"
+>
               {/* Form glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent rounded-3xl"></div>
               
@@ -370,7 +382,7 @@ export const EcosystemSection = () => {
                   </p>
                 </motion.div>
               </div>
-            </div>
+            </form>
           </motion.div>
         </motion.div>
 
