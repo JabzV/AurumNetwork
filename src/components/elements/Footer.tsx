@@ -118,7 +118,7 @@ export const Footer = () => {
             className="w-[270px] h-auto"
           />
           <p className="text-neutral-200 text-base max-w-xs text-center sm:text-left">
-            Lives Wealth, LLC is a consulting partner for Aurum Network.
+            LivesWealth, LLC is a consulting partner for Aurum Network.
             Discover $AUN (Aurum Network Token), the native cryptocurrency of
             the Aurum Platform, powering the ecosystem's utility and engagement.
           </p>
@@ -326,7 +326,7 @@ export const Footer = () => {
       {/* Copyright */}
       <div className="w-full flex justify-center">
         <p className="text-white text-center text-sm opacity-80">
-          Copyright © 2025 Lives Wealth LLC | All Rights Reserved.
+          Copyright © 2025 LivesWealth LLC | All Rights Reserved.
         </p>
       </div>
     </footer>
