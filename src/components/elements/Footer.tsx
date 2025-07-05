@@ -159,7 +159,7 @@ export const Footer = () => {
                     href="#why-aurum"
                     className="text-neutral-300 hover:text-[#e59445] transition"
                   >
-                    Why Aurum
+                    About
                   </a>
                 </li>
                 <li>
@@ -247,7 +247,7 @@ export const Footer = () => {
                   href="#why-aurum"
                   className="text-neutral-300 hover:text-[#e59445] transition"
                 >
-                  Why Aurum
+                  About
                 </a>
               </li>
               <li>

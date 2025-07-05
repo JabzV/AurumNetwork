@@ -51,7 +51,7 @@ export const HeroContent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
-        Join the gold revolution with Aurum Network — empowering you to unlock the full value of the world's first gold supply chain ecosystem and secure your financial future.
+        Join the gold revolution with LivesWealth — empowering you to unlock the full value of the world's first gold supply chain ecosystem through Aurum Network.
       </motion.p>
     </div>
   );

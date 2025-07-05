@@ -8,7 +8,20 @@ export const StrategicPartners = () => {
         </h2>
         
         {/* Partner Logos */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-32">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-20">
+          {/* QMEI Partner */}
+          <div className="flex-shrink-0 transition-transform duration-150 hover:scale-102">
+            <img 
+              src="assets/aurum-network-white.png"
+              alt="QMEI Strategic Partner"
+              className="h-12 md:h-16 object-contain"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          </div>
+
           {/* QMB Partner */}
           <div className="flex-shrink-0 transition-transform duration-150 hover:scale-102">
             <img 
@@ -21,7 +34,7 @@ export const StrategicPartners = () => {
               }}
             />
           </div>
-          
+
           {/* QMEI Partner */}
           <div className="flex-shrink-0 transition-transform duration-150 hover:scale-102">
             <img 

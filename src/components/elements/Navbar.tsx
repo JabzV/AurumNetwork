@@ -6,7 +6,7 @@ import { MobileMenu } from './navbar/MobileMenu';
 
 const navItems = [
   { href: "#home", text: "HOME" },
-  { href: "#why-aurum", text: "WHY AURUM" },
+  { href: "#why-aurum", text: "ABOUT" },
   { href: "#discover", text: "DISCOVER" },
   { href: "#review", text: "REVIEWS" },
   { href: "#faq", text: "FAQ" },

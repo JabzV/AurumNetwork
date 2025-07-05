@@ -3,9 +3,9 @@ export const Logo = () => {
     <div className="flex items-center">
       <a href="/" className="block">
         <img 
-          src="assets\aurum-network-white.webp" 
+          src="assets\liveswealthlogo.png" 
           alt="Aurum Network" 
-          className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[163px] h-auto object-contain"
+          className="w-[75px] sm:w-[70px] md:w-[75px] lg:w-[85px] h-auto object-contain"
           onError={(e) => {
             // Fallback to text if image fails to load
             const target = e.target as HTMLImageElement;
