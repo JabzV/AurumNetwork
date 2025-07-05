@@ -14,7 +14,7 @@ export const StrategicPartners = () => {
             <img 
               src="assets/aurum-network-white.png"
               alt="QMEI Strategic Partner"
-              className="h-12 md:h-16 object-contain"
+              className="h-14 md:h-16 object-contain"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
