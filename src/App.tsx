@@ -9,7 +9,7 @@ import { WhyAurumSection } from "./components/sections/WhyAurumSection";
 import { LineDivider } from "./components/shared/LineDivider";
 
 function App() {
-  return <Layout title="Aurum Network - Gold Monetization Made Easy">
+  return <Layout title="LivesWealth - Gold Monetization Made Easy">
     <HeroSection />
         <LineDivider />
 
