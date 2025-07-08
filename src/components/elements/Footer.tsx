@@ -113,7 +113,7 @@ export const Footer = () => {
         {/* Logo and Description */}
         <div className="flex flex-col items-center sm:items-start gap-4 max-w-md">
           <img
-            src="/assets/aurum-network-white.webp"
+            src="assets\liveswealthlogo.png"
             alt="Aurum Network Logo"
             className="w-[270px] h-auto"
           />

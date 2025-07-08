@@ -16,12 +16,14 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="w-full h-[60px] md:h-[80px] lg:h-[100px] flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 bg-hero">
+    <header className="w-full h-[60px] md:h-[80px] lg:h-[100px] flex items-center px-4 sm:px-6 md:px-12 lg:px-20 bg-hero">
       {/* Logo */}
-      <Logo />
+      <div className="flex items-center justify-start w-[185px] lg:w-[215px]">
+        <Logo />
+      </div>
       
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center justify-center flex-1">
+      {/* Desktop Navigation - Absolutely centered */}
+      <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 md:text-sm">
         <ul className="flex items-center space-x-0">
           {navItems.map((item, index) => (
             <NavLink 
@@ -35,21 +37,21 @@ export const Navbar = () => {
       </nav>
       
       {/* Desktop Whitepaper Button */}
-      <div className="hidden lg:block">
+      <div className="hidden md:flex items-center justify-end w-[185px] lg:w-[215px] ml-auto">
         <WhitepaperButton />
       </div>
-
+      
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden flex flex-col space-y-1 p-2"
+        className="md:hidden flex flex-col space-y-1 p-2 ml-auto"
         aria-label="Toggle mobile menu"
       >
         <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
         <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
         <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
       </button>
-
+      
       {/* Mobile Menu */}
       <MobileMenu 
         isOpen={isMobileMenuOpen} 

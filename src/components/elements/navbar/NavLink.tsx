@@ -17,7 +17,7 @@ export const NavLink = ({ href, text, isActive = false }: NavLinkProps) => {
           }
         `}
       >
-        <span className="text-base font-normal whitespace-nowrap">
+        <span className="text-base font-normal whitespace-nowrap md:text-base">
           {text}
         </span>
       </a>
